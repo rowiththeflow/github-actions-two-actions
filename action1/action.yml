@@ -1,5 +1,12 @@
-name: "Action 1"
-description: "The First Action"
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "composite"
+  steps:
+    - run: echo Hello ${{ inputs.who-to-greet }}.
+      shell: bash
